@@ -1,7 +1,7 @@
 # coding=utf-8
 import json
-
-from paramsinfo import *
+from paramsinfo import ParamsInfo, ParamValue, ValidateType
+from enum import Enum
 
 
 class ValidateParamResult(Enum):

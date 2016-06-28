@@ -1,4 +1,8 @@
-from jsonhelper import *
+from jsonhelper import JsonParser
+from maxhelper import MaxHelper
+from limitsvalidator import LimitsValidator
 
 data = JsonParser.parse('data.json')
-JsonParser.write('result.json', ValidateParamResult(0))
+currLimits = MaxHelper.getValue()
+res = LimitsValidator.validate(data, currLimits)
+JsonParser.write('result.json', res)
