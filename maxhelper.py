@@ -17,11 +17,26 @@ class MaxHelper:
     scriptTimeLimit = 'renderers.current.progressive_timeLimit'
 
     @classmethod
+    def __set_corona_renderer(cls):
+        """ Устанавливает Corona Renderer, если был выбран другой движок """
+        scriptSwitchRenderer = '''if (classof renderers.current != Corona_1_4) then(
+        renderers.current = Corona_1_4()
+    )'''
+        try:
+            MaxPlus.Core.EvalMAXScript(scriptSwitchRenderer)
+            return True
+        except:
+            return False
+
+    @classmethod
     def getValue(cls):
         """
         Получает значения лимитов Corona Renderer'a
         Возвращает кортеж PassLimit, NoiseLimit, TimeLimit(в сек)
         """
+        if not cls.__set_corona_renderer():
+            return None
+
         return (MaxPlus.Core.EvalMAXScript(cls.scriptPassLimit).GetInt64(),
                 MaxPlus.Core.EvalMAXScript(cls.scriptNoiseLimit).GetFloat(),
                 MaxPlus.Core.EvalMAXScript(cls.scriptTimeLimit).GetInt64() / 1000.0)
@@ -29,6 +44,10 @@ class MaxHelper:
     @classmethod
     def setValue(cls, passLim=-1, noiseLim=-1.0, timeLim=-1):
         """ Устанавливает значения лимитов Corona Renderer'a """
+
+        if not cls.__set_corona_renderer():
+            return None
+
         maxscript = ''
         if int(passLim) >= 0:
             maxscript += '{0} = {1}'.format(cls.scriptPassLimit, passLim)
@@ -39,3 +58,9 @@ class MaxHelper:
 
         if maxscript:
             MaxPlus.Core.EvalMAXScript(maxscript)
+
+        return True
+
+    @classmethod
+    def close_max(cls):
+        MaxPlus.Core.EvalMAXScript("quitMAX(#noPrompt)")
