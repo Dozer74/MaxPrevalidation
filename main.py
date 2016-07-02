@@ -16,7 +16,7 @@ else:
     JsonParser.write(os.path.join(dirpath, 'result.json'), res)  # результат сохранен, можно закрываться
 
 killer_path = os.path.join(dirpath, 'maxkiller.py')
-Popen([r'.\python\python.exe', killer_path])  # на всякий случай, запускаем скрипт, который добьёт макс при необходимости
+Popen([r'C:\Program Files\Autodesk\3ds Max 2015\python\python.exe', killer_path])  # на всякий случай, запускаем скрипт, который добьёт макс при необходимости
 MaxHelper.close_max()  # просим макс закрыться по-хорошему
 
 # только для теста:

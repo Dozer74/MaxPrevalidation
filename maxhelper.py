@@ -16,8 +16,8 @@ class MaxHelper:
     scriptNoiseLimit = 'renderers.current.adaptivity_targetError'
     scriptTimeLimit = 'renderers.current.progressive_timeLimit'
 
-    @classmethod
-    def __set_corona_renderer(cls):
+    @staticmethod
+    def __set_corona_renderer():
         """ Устанавливает Corona Renderer, если был выбран другой движок """
         scriptSwitchRenderer = '''if (classof renderers.current != Corona_1_4) then(
         renderers.current = Corona_1_4()
