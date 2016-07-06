@@ -1,5 +1,5 @@
 # coding=utf-8
-from paramsinfo import ValidateType
+from content import ValidateType
 from jsonhelper import ValidateParamResult
 
 

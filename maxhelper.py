@@ -28,18 +28,18 @@ class MaxHelper:
         except:
             return False
 
-    @classmethod
-    def getValue(cls):
+    @staticmethod
+    def getValue():
         """
         Получает значения лимитов Corona Renderer'a
         Возвращает кортеж PassLimit, NoiseLimit, TimeLimit(в сек)
         """
-        if not cls.__set_corona_renderer():
+        if not MaxHelper.__set_corona_renderer():
             return None
 
-        return (MaxPlus.Core.EvalMAXScript(cls.scriptPassLimit).GetInt64(),
-                MaxPlus.Core.EvalMAXScript(cls.scriptNoiseLimit).GetFloat(),
-                MaxPlus.Core.EvalMAXScript(cls.scriptTimeLimit).GetInt64() / 1000.0)
+        return (MaxPlus.Core.EvalMAXScript(MaxHelper.scriptPassLimit).GetInt64(),
+                MaxPlus.Core.EvalMAXScript(MaxHelper.scriptNoiseLimit).GetFloat(),
+                MaxPlus.Core.EvalMAXScript(MaxHelper.scriptTimeLimit).GetInt64() / 1000.0)
 
     @classmethod
     def setValue(cls, passLim=-1, noiseLim=-1.0, timeLim=-1):
