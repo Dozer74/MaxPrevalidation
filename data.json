@@ -1,23 +1,91 @@
 {
-  "Corona": {
-    "Scene": {
-      "General Settings": {
-        "Progressive rendering limits": {
-          "Pass limit": {
-            "operator": ">",
-            "value": "0"
-          },
-          "Time limit [HH:MM:SS]": {
-            "operator": ">",
-            "value": "01:01:01"
-          },
-          "Noise level limit": {
-            "operator": ">",
-            "value": "2"
-          },
-          "Validation type": "ALL_TRUE"
+  "CAN_CHANGE": {
+    "Default Scanline Renderer": {
+      "Common": {
+        "Common parameters": {
+          "Time Output": "single"
+        },
+        "Render Output": {
+          "Save File": "False"
         }
       }
+    },
+    "V-Ray": {
+      "Common": {
+        "Common parameters": {
+          "Time Output": "single"
+        },
+        "Render Output": {
+          "Save File": "False"
+        }
+      },
+      "V-Ray": {
+        "V-Ray:: Frame buffer": {
+          "Render to memory frame buffer": "False",
+          "Render raw image file": {
+            "Render to V-Ray raw image file": "False"
+          }
+        }
+      },
+      "Render Elements": {
+        "Remove path": "True"
+      },
+      "Indirect illumination": {
+        "V-Ray:: Irradiance map": {
+          "Mode": {
+            "File": {
+              "Remove absolute path": "True"
+            }
+          },
+          "On render end": {
+            "Auto save": {
+              "Remove absolute path": "True"
+            }
+          }
+        }
+      }
+    },
+    "Corona":{
+      "Render Elements": {
+        "Remove path": "True"
+      },
+      "Common": {
+        "Common parameters": {
+          "Time Output": "single"
+        },
+        "Render Output": {
+          "Save File": "False"
+        }
+      }
+    },
+    "Other": {
+      "Remove resource paths": "True"
+    }
+  },
+  "CAN_CHANGE_WITH_REQUEST":{
+    "Test" : {
+      "Test1" : "True"
+    }
+  },
+  "CAN_CHANGE_USER":{
+    "Corona":{
+      "Scene":{
+        "General Settings":{
+          "Progressive rendering limits":{
+            "Pass limit" : {
+              "operator":">",
+              "value":"0"
+            },
+            "Time limit [HH:MM:SS]":{
+              "operator":">",
+              "value":"0"
+            }
+          }
+        }
+      }
+    },
+    "Other":{
+      "Existence all defined resources" : "True"
     }
   }
 }

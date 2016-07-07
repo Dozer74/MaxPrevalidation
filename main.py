@@ -8,12 +8,12 @@ from subprocess import Popen
 
 dirpath = os.path.dirname(__file__)
 
-data = JsonParser.parse(os.path.join(dirpath, 'data.json'))
+param_info = JsonParser.parse(os.path.join(dirpath, 'data.json'))
 currLimits = MaxHelper.getValue()
 if currLimits is None:
     print("Can't get limits!")
 else:
-    res = LimitsValidator.validate(data.content, currLimits)
+    res = LimitsValidator.validate(param_info.content, currLimits)
     JsonParser.write(os.path.join(dirpath, 'result.json'), res)  # результат сохранен, можно закрываться
 
 killer_path = os.path.join(dirpath, 'maxkiller.py')
@@ -22,4 +22,4 @@ MaxHelper.close_max()  # просим макс закрыться по-хоро�
 
 # только для теста:
 # import time
-# time.sleep(900)  # эмитируем зависание макса
+# time.sleep(900)  # имитируем зависание макса
