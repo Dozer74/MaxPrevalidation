@@ -21,8 +21,8 @@ class LimitsValidator:
         validCounter += int(LimitsValidator.__isValid(jsonData.time_limit, currLimits[2]))
 
         if validCounter == 3 and jsonData.validation_type == ValidateType['ALL_TRUE'] or \
-           validCounter == 2 and jsonData.validation_type == ValidateType['LEAST_TWO'] or \
-           validCounter == 1 and jsonData.validation_type == ValidateType['LEAST_ONE'] or \
+           validCounter >= 2 and jsonData.validation_type == ValidateType['LEAST_TWO'] or \
+           validCounter >= 1 and jsonData.validation_type == ValidateType['LEAST_ONE'] or \
            validCounter == 0 and jsonData.validation_type == ValidateType['ALL_FALSE']:
                 return ValidateParamResult(0)
 

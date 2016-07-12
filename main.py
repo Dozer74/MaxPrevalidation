@@ -16,10 +16,9 @@ else:
     JsonParser.write(os.path.join(dirpath, 'result.json'), res)  # результат сохранен, можно закрываться
 
 
+python_path = r'C:\Program Files\Autodesk\3ds Max 2015\python\python.exe'
 killer_path = os.path.join(dirpath, 'maxkiller.py')
 pid = os.getpid() # получаем pid текущего экземпляра 3ds max'a. Остальные трогать не будем
-# python_path = r'C:\Program Files\Autodesk\3ds Max 2015\3dsmax.exe'
-cmd = '"{}" "{}" {}'.format('python', killer_path, pid) # если не работает, поставить python_path первым аргументом
+cmd = '"{}" "{}" {}'.format(python_path, killer_path, pid) # если не работает, поставить python_path первым аргументом
 Popen(cmd, shell=True)
-
-# MaxHelper.close_max()  # просим макс закрыться по-хорошему
+MaxHelper.close_max()  # просим макс закрыться по-хорошему
