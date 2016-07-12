@@ -1,10 +1,9 @@
 # coding=utf-8
 import psutil
 import time
+import sys
 
-PROCNAME = "3dsmax.exe"
-
+pid = int(sys.argv[1])  # убиваем только процесс с указанным pid
 time.sleep(5)  # даём шанс максу самому завершить работу
-for proc in psutil.process_iter():
-    if proc.name() == PROCNAME:
-        proc.kill()  # если не успел (завис) - находим и убиваем его!
+proc = [p for p in psutil.process_iter() if p.pid == pid][0]
+proc.kill()  # если не успел (завис) - находим и убиваем его!
