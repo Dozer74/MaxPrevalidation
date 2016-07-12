@@ -39,7 +39,7 @@ class MaxHelper:
 
         return (MaxPlus.Core.EvalMAXScript(MaxHelper.scriptPassLimit).GetInt64(),
                 MaxPlus.Core.EvalMAXScript(MaxHelper.scriptNoiseLimit).GetFloat(),
-                MaxPlus.Core.EvalMAXScript(MaxHelper.scriptTimeLimit).GetInt64() / 1000.0)
+                (int(MaxPlus.Core.EvalMAXScript(MaxHelper.scriptTimeLimit).GetInt64()) / 1000.0))
 
     @classmethod
     def setValue(cls, passLim=-1, noiseLim=-1.0, timeLim=-1):
