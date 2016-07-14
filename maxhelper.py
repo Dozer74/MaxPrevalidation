@@ -37,9 +37,9 @@ class MaxHelper:
         if not MaxHelper.__set_corona_renderer():
             return None
 
-        return (MaxPlus.Core.EvalMAXScript(MaxHelper.scriptPassLimit).GetInt64(),
+        return (MaxPlus.Core.EvalMAXScript(MaxHelper.scriptPassLimit).GetInt(),
                 MaxPlus.Core.EvalMAXScript(MaxHelper.scriptNoiseLimit).GetFloat(),
-                (int(MaxPlus.Core.EvalMAXScript(MaxHelper.scriptTimeLimit).GetInt64()) / 1000.0))
+                MaxPlus.Core.EvalMAXScript(MaxHelper.scriptTimeLimit).GetInt() / 1000.0)
 
     @classmethod
     def setValue(cls, passLim=-1, noiseLim=-1.0, timeLim=-1):

@@ -68,23 +68,23 @@
     }
   },
   "CAN_CHANGE_USER":{
-    "Corona": {
-      "Scene": {
-        "General Settings": {
-          "Progressive rendering limits": {
-            "Pass limit": {
-              "operator": ">",
+    "Corona":{
+      "Scene":{
+        "General Settings":{
+          "Progressive rendering limits":{
+            "Pass limit" : {
+              "operator":">",
+              "value":"0"
+            },
+            "Time limit [HH:MM:SS]":{
+              "operator":">",
               "value": "0"
             },
-            "Time limit [HH:MM:SS]": {
-              "operator": ">",
-              "value": "0"
+            "Noise level limit":{
+              "operator":">",
+              "value":"0"
             },
-            "Noise level limit": {
-              "operator": ">",
-              "value": "0"
-            },
-            "validation": "LEAST_ONE"
+            "validation":"LEAST_ONE"
           }
         }
       }
